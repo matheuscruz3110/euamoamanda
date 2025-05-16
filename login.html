@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpresa pra Você 💖</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gradient-to-b from-pink-100 to-pink-200">
+    <div class="bg-white p-8 rounded-lg shadow-lg text-center max-w-md w-full">
+        <h1 class="text-3xl font-bold text-pink-600 mb-4">Uma surpresa te espera... 💌</h1>
+        <p class="mb-2 text-gray-500 italic">Você lembra onde tudo começou? E aquele dia que mudou nossas vidas? ✨</p>
+        <form action="/login" method="POST" class="space-y-4 mt-6">
+            <input type="text" name="username" placeholder="Onde tudo começou" required class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400">
+            <input type="password" name="password" placeholder="Nossa data mágica (DD/MM/AAAA)" required class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400">
+            <button type="submit" class="w-full bg-pink-500 text-white font-bold py-2 rounded hover:bg-pink-600 transition duration-300">Descobrir 💖</button>
+        </form>
+    </div>
+</body>
+</html>

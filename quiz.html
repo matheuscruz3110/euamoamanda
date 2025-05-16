@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Quiz Romântico 💖</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #ffe4e6, #fce7f3);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .quiz-container, .pista-container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            animation: fadeIn 1s forwards;
+        }
+
+        .pista-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(4px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        button {
+            background-color: #ec4899;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
+        }
+
+        .pista-img {
+            width: 80%;
+            border-radius: 20px;
+            margin-top: 20px;
+            opacity: 0.9;
+            filter: brightness(0.9);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .enigma {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #f43f5e;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container" id="pergunta1">
+        <h1 class="text-3xl text-pink-600 mb-8 font-semibold">Vamos testar sua memória de amor... 💖</h1>
+        <p class="mb-4 font-medium">Onde foi nosso primeiro encontro especial?</p>
+        <button onclick="verificarResposta('pergunta1', false)">🍕 Na pizzaria charmosa</button><br>
+        <button onclick="verificarResposta('pergunta1', true)">🍿 No cinema</button>
+    </div>
+
+    <div class="quiz-container" id="pergunta2" style="display:none;">
+        <p class="mb-4 font-medium">Qual é nossa cidade favorita para uma escapada?</p>
+        <button onclick="verificarResposta('pergunta2', false)">🏞️ Serra</button><br>
+        <button onclick="verificarResposta('pergunta2', true)">🌴 Praia</button>
+    </div>
+
+    <div class="quiz-container" id="pergunta3" style="display:none;">
+        <p class="mb-4 font-medium">O que você prefere ganhar em uma surpresa?</p>
+        <button onclick="verificarResposta('pergunta3', false)">💰 5 reais</button><br>
+        <button onclick="verificarResposta('pergunta3', true)">🎁 Presente misterioso</button>
+    </div>
+
+    <div class="pista-container" id="pista">
+        <h1 class="text-3xl text-pink-600">Você chegou até aqui... 💌</h1>
+        <p class="enigma">Algumas surpresas te esperam onde nossas viagens sempre começam...<br>
+        Olhe com carinho, e siga seu coração. 💖</p>
+
+        <img src="fiat500-pista.jpg" alt="Fiat 500 com pista" class="pista-img">
+
+        <p class="mt-4 text-gray-500 italic"> Espero que goste 💖</p>
+    </div>
+
+    <script>
+        function verificarResposta(perguntaId, correta) {
+            const botoes = document.querySelectorAll(`#${perguntaId} button`);
+            botoes.forEach(btn => btn.disabled = true);
+            if (correta) {
+                setTimeout(() => {
+                    document.getElementById(perguntaId).style.display = 'none';
+                    if(perguntaId === 'pergunta1') {
+                        document.getElementById('pergunta2').style.display = 'block';
+                    } else if (perguntaId === 'pergunta2') {
+                        document.getElementById('pergunta3').style.display = 'block';
+                    } else if (perguntaId === 'pergunta3') {
+                        document.getElementById('pista').style.display = 'flex';
+                    }
+                }, 500);
+            } else {
+                setTimeout(() => {
+                    alert("Ops... tenta lembrar com carinho ❤️");
+                    botoes.forEach(btn => btn.disabled = false);
+                }, 500);
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
